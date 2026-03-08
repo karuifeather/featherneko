@@ -39,7 +39,7 @@
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
-      if (href === '#' || href === '#open-app') return;
+      if (href === '#') return;
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) target.scrollIntoView({ behavior: 'smooth' });
@@ -54,12 +54,4 @@
     });
   });
 
-  // Open App link — update this to your app URL
-  const appUrl = 'https://karuifeather.com';
-  document.querySelectorAll('a[href="#open-app"]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.open(appUrl, '_blank');
-    });
-  });
 })();
