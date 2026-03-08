@@ -25,6 +25,7 @@ import {
 import { RootState } from '@/state/store';
 import { setTheme, setDefaultStreamingApi, STREAMING_APIS, getStreamingApiConfig, type ThemeMode } from '@/state/settingsSlice';
 import { logout } from '@/state/userSlice';
+import { persistor } from '@/state/store';
 import { clearAllHistory } from '@/state/watchHistorySlice';
 import { clearContinueWatching } from '@/state/continueWatchingSlice';
 import { useThemeColors } from '@/hooks/useThemeColors';
@@ -91,8 +92,9 @@ export default function SettingsScreen() {
       {
         text: 'Log out',
         style: 'destructive',
-        onPress: () => {
+        onPress: async () => {
           dispatch(logout());
+          await persistor.flush();
           router.replace('/(auth)/welcome');
         },
       },
