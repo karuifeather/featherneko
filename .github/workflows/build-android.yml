@@ -1,0 +1,84 @@
+# Build Android APK for FeatherNeko (open-source; host artifact on GitHub Releases).
+# Uses Expo prebuild + Gradle; signs with debug keystore (fine for open source).
+name: Build Android APK
+
+on:
+  push:
+    branches: [main, master]
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: "platform-tools platforms;android-34 build-tools;34.0.0"
+          accept-android-sdk-licenses: true
+
+      - name: Generate native Android project
+        run: npx expo prebuild --platform android --no-install
+
+      - name: Create debug keystore for release signing
+        run: |
+          keytool -genkeypair -v -storetype PKCS12 \
+            -keystore android/app/debug.keystore \
+            -storepass android -alias androiddebugkey -keypass android \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -dname "CN=Android Debug,O=Android,C=US"
+
+      - name: Build release APK
+        run: cd android && ./gradlew assembleRelease --no-daemon
+
+      - name: Copy APK for artifact
+        run: cp android/app/build/outputs/apk/release/app-release.apk featherneko.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: featherneko-android-apk
+          path: featherneko.apk
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download APK
+        uses: actions/download-artifact@v4
+        with:
+          name: featherneko-android-apk
+
+      - name: Rename APK with version
+        run: mv featherneko.apk featherneko-${GITHUB_REF#refs/tags/v}.apk
+
+      - name: Create GitHub Release and upload APK
+        uses: softprops/action-gh-release@v2
+        with:
+          files: featherneko-*.apk
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
