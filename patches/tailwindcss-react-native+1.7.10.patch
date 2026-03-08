@@ -1,0 +1,18 @@
+diff --git a/node_modules/tailwindcss-react-native/dist/components.js b/node_modules/tailwindcss-react-native/dist/components.js
+index 25d1d5f..9e03743 100644
+--- a/node_modules/tailwindcss-react-native/dist/components.js
++++ b/node_modules/tailwindcss-react-native/dist/components.js
+@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.SafeAreaView = exports.InputAccessoryView = exports.TouchableNativeFeedback = exports.DrawerLayoutAndroid = exports.VirtualizedList = exports.View = exports.TouchableWithoutFeedback = exports.TouchableOpacity = exports.TouchableHighlight = exports.TextInput = exports.Text = exports.Switch = exports.SectionList = exports.ScrollView = exports.RefreshControl = exports.Pressable = exports.Modal = exports.KeyboardAvoidingView = exports.ImageBackground = exports.Image = exports.FlatList = exports.ActivityIndicator = void 0;
+ const styled_1 = require("./styled");
+ const react_native_1 = require("react-native");
++const safe_area_context_1 = require("react-native-safe-area-context");
+ exports.ActivityIndicator = (0, styled_1.styled)(react_native_1.ActivityIndicator);
+ exports.FlatList = (0, styled_1.styled)(react_native_1.FlatList);
+ exports.Image = (0, styled_1.styled)(react_native_1.Image);
+@@ -24,4 +25,4 @@ exports.VirtualizedList = (0, styled_1.styled)(react_native_1.VirtualizedList);
+ exports.DrawerLayoutAndroid = (0, styled_1.styled)(react_native_1.DrawerLayoutAndroid);
+ exports.TouchableNativeFeedback = (0, styled_1.styled)(react_native_1.TouchableNativeFeedback);
+ exports.InputAccessoryView = (0, styled_1.styled)(react_native_1.InputAccessoryView);
+-exports.SafeAreaView = (0, styled_1.styled)(react_native_1.SafeAreaView);
++exports.SafeAreaView = (0, styled_1.styled)(require("react-native-safe-area-context").SafeAreaView);
