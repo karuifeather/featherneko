@@ -2,9 +2,7 @@
 /**
  * Generate a bcrypt hash for your app password.
  * Run: node scripts/generate-password-hash.js "YourNewPassword"
- * Then put the output into .env as PASSWORD_HASH=<the hash>
- *
- * (Use quotes so special characters are preserved.)
+ * Use escaped output for .env, unescaped for GitHub secrets.
  */
 const bcrypt = require('bcryptjs');
 
@@ -17,7 +15,8 @@ if (!password) {
 
 const saltRounds = 10;
 bcrypt.hash(password, saltRounds).then((hash) => {
-  console.log('\nAdd this to your .env file:\n');
-  console.log('PASSWORD_HASH=' + hash);
-  console.log('\n');
+  const escaped = hash.replace(/\$/g, '\\$');
+  console.log('\nFor .env file:\n  PASSWORD_HASH=' + escaped);
+  console.log('\nFor GitHub secret PASSWORD_HASH:\n  ' + hash);
+  console.log('');
 });

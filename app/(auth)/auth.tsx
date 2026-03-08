@@ -12,7 +12,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
 import { authenticate } from '@/state/userSlice';
 import bcrypt from 'bcryptjs';
-import { PASSWORD_HASH } from '@env';
+import { PASSWORD_HASH as PASSWORD_HASH_RAW } from '@env';
 import { useRouter } from 'expo-router';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import Logo from '@/components/logo';
@@ -40,6 +40,7 @@ const AuthPage = () => {
       setError('Enter your password.');
       return;
     }
+    const PASSWORD_HASH = PASSWORD_HASH_RAW?.replace(/\\\$/g, '$');
     if (!PASSWORD_HASH) {
       setError('App not configured. Set PASSWORD_HASH in .env.');
       setLoading(false);

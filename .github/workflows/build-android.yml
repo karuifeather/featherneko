@@ -1,6 +1,6 @@
 # Build Android APK for FeatherNeko (open-source; host artifact on GitHub Releases).
 # Uses Expo prebuild + Gradle; signs with debug keystore (fine for open source).
-# Required GitHub secrets: MAL_CLIENT_ID, PASSWORD_HASH. Optional: ANIMEAPI_URL (defaults to https://animeapi.net).
+# Required secrets: MAL_CLIENT_ID, PASSWORD_HASH (hash only, e.g. $2a$10$... — not "PASSWORD_HASH=..."). Optional: ANIMEAPI_URL.
 name: Build Android APK
 
 on:
@@ -33,7 +33,7 @@ jobs:
           ANIMEAPI_URL: ${{ secrets.ANIMEAPI_URL }}
         run: |
           printf 'MAL_CLIENT_ID=%s\nANIMEAPI_URL=%s\nPASSWORD_HASH=%s\n' \
-            "$MAL_CLIENT_ID" "${ANIMEAPI_URL:-https://animeapi.net}" "$PASSWORD_HASH" > .env
+            "$MAL_CLIENT_ID" "${ANIMEAPI_URL:-https://animeapi.net}" "$(echo "$PASSWORD_HASH" | sed 's/\$/\\$/g')" > .env
 
       - name: Setup Java
         uses: actions/setup-java@v4
