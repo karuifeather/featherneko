@@ -1,0 +1,48 @@
+/**
+ * FeatherNeko — Responsive enhancements
+ * Overflow prevention, breakpoints, touch targets, safe area
+ */
+
+/* Tablet: reduce nav gap for medium screens */
+@media (max-width: 900px) and (min-width: 769px) {
+  .nav__links { gap: var(--space-lg); font-size: 14px; }
+}
+
+/* Small mobile: tighter spacing, full-width CTAs */
+@media (max-width: 480px) {
+  .hero__phone {
+    width: min(260px, 85vw);
+    max-width: 100%;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4)); /* smaller shadow to prevent overflow */
+  }
+  .hero__visual { min-height: 280px; overflow-x: clip; }
+  .hero__ctas { flex-direction: column; width: 100%; }
+  .hero__ctas .btn { width: 100%; min-height: 48px; }
+  .value-strip__inner { gap: var(--space-base); font-size: 14px; }
+  .engineering__cards { grid-template-columns: 1fr; }
+  .final-cta__buttons { flex-direction: column; width: 100%; max-width: 320px; margin: 0 auto; }
+  .final-cta__buttons .btn { width: 100%; min-height: 48px; }
+}
+
+/* Extra small: 360px and below */
+@media (max-width: 360px) {
+  .hero__headline { font-size: clamp(24px, 7vw, 32px); }
+  .feature, .engineering, .builder, .final-cta, .value-strip {
+    padding-left: var(--space-base);
+    padding-right: var(--space-base);
+  }
+}
+
+/* Touch targets: ensure buttons are at least 44px on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .btn { min-height: 44px; }
+  .nav__cta { min-height: 44px; padding: var(--space-base) var(--space-lg); }
+}
+
+/* Safe area for notched devices (e.g. iPhone) */
+@supports (padding: env(safe-area-inset-top)) {
+  .nav {
+    padding-left: max(var(--section-padding-x), env(safe-area-inset-left));
+    padding-right: max(var(--section-padding-x), env(safe-area-inset-right));
+  }
+}

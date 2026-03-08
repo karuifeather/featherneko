@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FeatherNeko — Discover, track, and stream anime</title>
+  <meta name="description" content="FeatherNeko brings anime discovery, watchlists, episode streaming, discussions, reviews, and airing schedules into one fast, cinematic mobile experience.">
+  <link rel="icon" href="images/icon-brand.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- 1. Navigation -->
+  <nav class="nav">
+    <a href="#" class="nav__logo" aria-label="FeatherNeko home">
+      <img src="images/logo.svg" alt="FeatherNeko" height="28">
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+    <label for="nav-toggle" class="nav__hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </label>
+    <label for="nav-toggle" class="nav__overlay" aria-hidden="true"></label>
+    <ul class="nav__links" role="navigation" aria-label="Main">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#screens">Screens</a></li>
+      <li><a href="#engineering">Engineering</a></li>
+      <li><a href="#builder">About</a></li>
+      <li><a class="nav__cta" href="https://karuifeather.com" target="_blank" rel="noopener">Open App</a></li>
+    </ul>
+  </nav>
+
+  <!-- 2. Hero -->
+  <section class="hero" id="hero">
+    <div class="hero__content">
+      <h1 class="hero__headline">Discover, track, and stream anime in one premium experience.</h1>
+      <p class="hero__subheadline">FeatherNeko brings anime discovery, watchlists, episode streaming, discussions, reviews, and airing schedules into one fast, cinematic mobile experience.</p>
+      <div class="hero__ctas">
+        <a href="#open-app" class="btn btn--primary">Open App</a>
+        <a href="#features" class="btn btn--secondary">Explore Features</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__phone">
+        <div class="hero__phone-inner">
+          <img src="images/home.jpg" alt="FeatherNeko home screen" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.alt='Home'; this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Home'));">
+        </div>
+      </div>
+      <div class="hero__cards">
+        <div class="hero__card hero__card--tl"><img src="images/search.jpg" alt="Search" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Search'));"></div>
+        <div class="hero__card hero__card--tr"><img src="images/anime-detail.jpg" alt="Details" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Details'));"></div>
+        <div class="hero__card hero__card--bl"><img src="images/discussion.jpg" alt="Discussion" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Discussion'));"></div>
+        <div class="hero__card hero__card--br"><img src="images/cache-insights.jpg" alt="Cache Insights" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Cache'));"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Value Strip -->
+  <section class="value-strip">
+    <div class="value-strip__inner">
+      <span class="value-strip__item"><span class="value-strip__dot">●</span> Fast local caching</span>
+      <span class="value-strip__item"><span class="value-strip__dot">●</span> Anime discovery</span>
+      <span class="value-strip__item"><span class="value-strip__dot">●</span> Watchlist + progress</span>
+      <span class="value-strip__item"><span class="value-strip__dot">●</span> Rich discussions</span>
+      <span class="value-strip__item"><span class="value-strip__dot">●</span> Airing schedules</span>
+      <span class="value-strip__item"><span class="value-strip__dot">●</span> Streaming-ready playback</span>
+    </div>
+  </section>
+
+  <!-- 4. Feature — Discover -->
+  <section class="feature reveal" id="features">
+    <div class="feature__content">
+      <h2 class="feature__headline">Discover anime without the clutter</h2>
+      <p class="feature__copy">Browse trending shelves, explore by genre, and search with precision. The interface is built for scanning and discovery—no visual noise, no endless scrolling through dense grids. Find what you want, quickly.</p>
+    </div>
+    <div class="feature__visual">
+      <div class="feature__screenshot"><img src="images/home.jpg" alt="Home screen with trending shelves" onerror="this.onerror=null;this.parentElement.className='feature__screenshot screenshot-placeholder';this.style.display='none';this.alt='';this.parentElement.appendChild(document.createTextNode('Home'));"></div>
+      <div class="feature__screenshot"><img src="images/search.jpg" alt="Search" onerror="this.onerror=null;this.parentElement.className='feature__screenshot screenshot-placeholder';this.style.display='none';this.alt='';this.parentElement.appendChild(document.createTextNode('Search'));"></div>
+      <div class="feature__screenshot"><img src="images/genre.jpg" alt="Genre browsing" onerror="this.onerror=null;this.parentElement.className='feature__screenshot screenshot-placeholder';this.style.display='none';this.alt='';this.parentElement.appendChild(document.createTextNode('Genre'));"></div>
+    </div>
+  </section>
+
+  <!-- 5. Feature — Track -->
+  <section class="feature feature--reverse reveal">
+    <div class="feature__content">
+      <h2 class="feature__headline">Stay on top of what you're watching</h2>
+      <p class="feature__copy">Your watchlist, continue watching, and progress stay in sync. Pick up where you left off. See what's airing this week. FeatherNeko keeps you aware without feeling like a chore.</p>
+    </div>
+    <div class="feature__visual">
+      <div class="feature__screenshot"><img src="images/continue-watching.jpg" alt="Continue watching" onerror="this.onerror=null;this.parentElement.className='feature__screenshot screenshot-placeholder';this.style.display='none';this.alt='';this.parentElement.appendChild(document.createTextNode('Continue'));"></div>
+      <div class="feature__screenshot"><img src="images/airing.jpg" alt="Airing schedule" onerror="this.onerror=null;this.parentElement.className='feature__screenshot screenshot-placeholder';this.style.display='none';this.alt='';this.parentElement.appendChild(document.createTextNode('Schedule'));"></div>
+    </div>
+  </section>
+
+  <!-- 6. Feature — Discussions -->
+  <section class="feature reveal">
+    <div class="feature__content">
+      <h2 class="feature__headline">Reviews, discussions, and anime context—built in</h2>
+      <p class="feature__copy">Rich discussion sheets, reviews, and detail tabs that feel native on mobile. BBCode, HTML, and mixed content are rendered cleanly. No janky webviews—just readable, well-formatted context where you need it.</p>
+    </div>
+    <div class="feature__visual">
+      <div class="feature__screenshot"><img src="images/discussion.jpg" alt="Discussion" onerror="this.onerror=null;this.parentElement.className='feature__screenshot screenshot-placeholder';this.style.display='none';this.alt='';this.parentElement.appendChild(document.createTextNode('Discussion'));"></div>
+      <div class="feature__screenshot"><img src="images/anime-detail.jpg" alt="Details" onerror="this.onerror=null;this.parentElement.className='feature__screenshot screenshot-placeholder';this.style.display='none';this.alt='';this.parentElement.appendChild(document.createTextNode('Details'));"></div>
+    </div>
+  </section>
+
+  <!-- 7. Engineering — split layout, images left / text right -->
+  <section class="engineering reveal" id="engineering">
+    <div class="engineering__visual">
+      <div class="cache-panels">
+        <div class="cache-panel"><img src="images/cache-1.jpg" alt="Cache Insights — hit rate and session" onerror="this.onerror=null;this.parentElement.classList.add('screenshot-placeholder');this.style.display='none';this.parentElement.appendChild(document.createTextNode('Cache 1'));"></div>
+        <div class="cache-panel"><img src="images/cache-2.jpg" alt="Cache Insights — served from cache, data source" onerror="this.onerror=null;this.parentElement.classList.add('screenshot-placeholder');this.style.display='none';this.parentElement.appendChild(document.createTextNode('Cache 2'));"></div>
+        <div class="cache-panel"><img src="images/cache-3.jpg" alt="Cache Insights — top namespaces" onerror="this.onerror=null;this.parentElement.classList.add('screenshot-placeholder');this.style.display='none';this.parentElement.appendChild(document.createTextNode('Cache 3'));"></div>
+      </div>
+    </div>
+    <div class="engineering__content">
+      <h2 class="engineering__headline">Built to feel fast, even when the data isn't simple</h2>
+      <p class="engineering__copy">Multi-source anime, mixed content formats, and heavy metadata. FeatherNeko handles it with caching, request efficiency, and resilient loading.</p>
+      <div class="engineering__cards">
+        <div class="engineering-card">
+          <h3 class="engineering-card__title">Smart caching</h3>
+          <p class="engineering-card__desc">Multi-layer caching with source-aware freshness and stale-while-revalidate behavior.</p>
+        </div>
+        <div class="engineering-card">
+          <h3 class="engineering-card__title">Request efficiency</h3>
+          <p class="engineering-card__desc">Duplicate requests are collapsed and cache effectiveness is surfaced in-app.</p>
+        </div>
+        <div class="engineering-card">
+          <h3 class="engineering-card__title">Rich content rendering</h3>
+          <p class="engineering-card__desc">BBCode, HTML, and mixed provider content are normalized into one rendering pipeline.</p>
+        </div>
+        <div class="engineering-card">
+          <h3 class="engineering-card__title">Premium playback UX</h3>
+          <p class="engineering-card__desc">Custom controls and thoughtful loading states keep streaming polished.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Screenshot Gallery — sticky headline + scrolling images -->
+  <section class="gallery-section reveal" id="screens">
+    <div class="gallery-section__content">
+      <h2 class="gallery-section__headline">Designed like a product, not a prototype</h2>
+    </div>
+    <div class="gallery-section__visual gallery-grid">
+      <div class="gallery__item"><img src="images/home.jpg" alt="Home" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Home'));"></div>
+      <div class="gallery__item"><img src="images/search.jpg" alt="Search" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Search'));"></div>
+      <div class="gallery__item"><img src="images/anime-detail.jpg" alt="Details" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Details'));"></div>
+      <div class="gallery__item"><img src="images/episode-list.jpg" alt="Episodes" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Episodes'));"></div>
+      <div class="gallery__item"><img src="images/watch-episode.jpg" alt="Player" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Player'));"></div>
+      <div class="gallery__item"><img src="images/discussion.jpg" alt="Discussion" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Discussion'));"></div>
+      <div class="gallery__item"><img src="images/airing.jpg" alt="Schedule" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Schedule'));"></div>
+      <div class="gallery__item"><img src="images/cache-insights.jpg" alt="Cache Insights" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Cache'));"></div>
+      <div class="gallery__item"><img src="images/genre.jpg" alt="Genre" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.parentElement.appendChild(document.createTextNode('Genre'));"></div>
+    </div>
+  </section>
+
+  <!-- 9. Builder -->
+  <section class="builder reveal" id="builder">
+    <div class="builder__inner">
+      <h2 class="builder__headline">Designed and engineered by Karuifeather</h2>
+      <p class="builder__copy">FeatherNeko is a frontend consumer app that brings together the best of different anime APIs—AniList, MyAnimeList, and Kitsu—into one premium mobile experience. Multi-layer caching, normalized content rendering, and thoughtful UX make it fast and clear.</p>
+      <a href="https://karuifeather.com" class="builder__link" target="_blank" rel="noopener">karuifeather.com →</a>
+    </div>
+  </section>
+
+  <!-- 10. Final CTA -->
+  <section class="final-cta reveal" id="open-app">
+    <h2 class="final-cta__headline">See FeatherNeko in action</h2>
+    <p class="final-cta__copy">Open the app to explore anime discovery, watchlists, and streaming. Or dive deeper with the case study.</p>
+    <div class="final-cta__buttons">
+      <a href="#open-app" class="btn btn--primary">Open App</a>
+      <a href="https://karuifeather.com/blog" class="btn btn--secondary" target="_blank" rel="noopener">View Case Study</a>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
